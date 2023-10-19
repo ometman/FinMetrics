@@ -12,3 +12,8 @@
 .App-link {
   color: #61dafb;
 }
+
+.App {
+  max-width: 680px;
+  background: blue;
+}
