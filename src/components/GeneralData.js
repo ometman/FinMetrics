@@ -21,9 +21,9 @@ export default function GeneralData() {
   if (error) return (<p>Oops! Seems something went wrong</p>);
 
   return (
-    <div className="rockets">
+    <div className="allmetrics">
       {allmetrics.length > 0 ? (
-        <div className="rockets-container">
+        <div className="data-container">
           {allmetrics.map((metric) => <DetailsData key={metric.id} metric={metric} />)}
         </div>
       ) : (
