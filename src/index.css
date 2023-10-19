@@ -51,58 +51,64 @@ ul li {
 
 .app-container {
   width: auto;
-  margin: 1% auto;
+  height: 100vh;
+  margin: 0 auto;
   max-width: 680px;
+  background: rgb(221, 71, 129);
 }
 
-.root-container {
-  width: auto;
-  margin: 0 auto;
-  max-width: 820px;
-}
+/* header */
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  width: auto;
-  background: #fff;
-  padding: 1.5rem 6rem;
+  background: rgb(236, 76, 138);
+  padding: 1.5rem 3rem;
+  color: #fff;
 }
 
 .heading {
   font-size: 1.5rem;
-  color: rgb(36, 144, 255);
+  color: #fff;
   width: auto;
 }
 
+.home-icon {
+  color: #fff;
+  width: 25%;
+}
+
 .nav {
-  width: 30%;
-  background: red;
+  width: 50%;
 }
 
 ul.nav-items {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10%;
+  color: #fff;
+}
+
+.tools {
+  display: flex;
+  justify-content: flex-end;
+  width: 25%;
+  gap: 5%;
 }
 
 ul.nav-items li {
   list-style: none;
   font-size: 1.2rem;
-  color: blue;
+  color: #fff;
+}
+
+.tools > li > a {
+  color: #fff;
 }
 
 ul.nav-items li a {
-  color: blue;
-}
-
-.tools {
-  display: flex;
-  width: 5%;
-  gap: 50%;
+  color: #fff;
 }
 
 /* metrics data container */
@@ -111,6 +117,10 @@ ul.nav-items li a {
 
 .data-container {
   display: block;
+
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
   width: 100%;
   margin: auto 0;
 }
@@ -120,20 +130,18 @@ ul.nav-items li a {
 .metric-container {
   display: flex;
   justify-content: space-between;
-  background: #fff;
+  background: rgb(221, 71, 129);
   padding: 2%;
   margin-bottom: 1%;
 }
 
 .metric-left,
 .metric-right {
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
   background: #fff;
-
-  /* padding: 1rem; */
   margin-bottom: 2rem;
   width: 100vw;
 }
@@ -226,7 +234,7 @@ ul > li.btn-link {
   color: blue;
 }
 
-.no-rockets {
+.no-metrics {
   text-align: center;
   padding-top: 5%;
 }
@@ -242,13 +250,8 @@ ul > li.btn-link {
   margin-top: 10%;
 }
 
-/* profile */
-
-.profile-container {
-  display: flex;
-  align-items: center;
-  margin: 0 3%;
-  width: auto;
-  background: #fff;
-  gap: 3%;
+/* icons */
+.header-icons {
+  vertical-align: middle;
+  font-size: 1.2rem;
 }
