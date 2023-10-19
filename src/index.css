@@ -61,8 +61,6 @@ ul li {
   max-width: 820px;
 }
 
-
-
 .header {
   display: flex;
   align-items: center;
@@ -77,9 +75,6 @@ ul li {
   font-size: 1.5rem;
   color: rgb(36, 144, 255);
   width: auto;
-}
-
-.logosize {
 }
 
 .nav {
@@ -112,12 +107,6 @@ ul.nav-items li a {
 
 /* metrics data container */
 
-.data-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
 /* general data */
 
 .data-container {
@@ -133,7 +122,7 @@ ul.nav-items li a {
   justify-content: space-between;
   background: #fff;
   padding: 2%;
-  margin-bottom: 1%; 
+  margin-bottom: 1%;
 }
 
 .metric-left,
@@ -143,6 +132,7 @@ ul.nav-items li a {
   justify-content: center;
   align-items: center; */
   background: #fff;
+
   /* padding: 1rem; */
   margin-bottom: 2rem;
   width: 100vw;
