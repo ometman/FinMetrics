@@ -27,11 +27,11 @@ const DetailsData = ({ metric }) => {
         dispatch(fetchMetricsByThunk());
       }
     }, [dispatch, isLoading, error]);
-  
+
     if (isLoading === 'pending') {
       return (<p>loading data...</p>);
     }
-  
+
     if (error) return (<p>Oops! Seems something went wrong</p>);
   };
 
