@@ -1,19 +1,38 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import {
   HiHome,
   HiOutlineMicrophone,
 } from 'react-icons/hi';
 import { FiSettings } from 'react-icons/fi';
-// import { IconContext } from 'react-icons/lib';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import Breadcrumb from './Breadcrumb';
 
 function Header() {
-  // <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}></IconContext.Provider>
+  const location = useLocation();
+  const toBack = () => window.history.back();
+  const toForward = () => window.history.forward();
+
   return (
     <div className="app-container">
       <div className="header">
         <div className="home-icon">
-          <NavLink to="/"><i className="header-icons"><HiHome /></i></NavLink>
+          {!(location.pathname === '/')
+            ? (
+              <>
+                <NavLink to={toBack}>
+                  <i className="header-icons">
+                    <FaAngleLeft onClick={toBack} />
+                  </i>
+                </NavLink>
+                <NavLink to={toForward}>
+                  <i className="header-icons">
+                    <FaAngleRight onClick={toForward} />
+                  </i>
+                </NavLink>
+              </>
+            ) : (
+              <NavLink to="/"><i className="header-icons"><HiHome /></i></NavLink>
+            )}
         </div>
         <Breadcrumb />
         <ul className="tools">

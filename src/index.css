@@ -54,7 +54,7 @@ ul li {
   height: 100vh;
   margin: 0 auto;
   max-width: 680px;
-  background: rgb(221,71,129);
+  background: rgb(221, 71, 129);
 }
 
 /* header */
@@ -63,7 +63,7 @@ ul li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgb(236,76,138);
+  background: rgb(236, 76, 138);
   padding: 1.5rem 3rem;
   color: #fff;
 }
@@ -94,16 +94,6 @@ ul.nav-items {
   color: #fff;
 }
 
-ul.nav-items li {
-  list-style: none;
-  font-size: 1.2rem;
-  color: #fff;
-}
-
-ul.nav-items li a {
-  color: #fff;
-}
-
 .tools {
   display: flex;
   justify-content: flex-end;
@@ -111,7 +101,17 @@ ul.nav-items li a {
   gap: 5%;
 }
 
+ul.nav-items li {
+  list-style: none;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
 .tools > li > a {
+  color: #fff;
+}
+
+ul.nav-items li a {
   color: #fff;
 }
 
@@ -121,6 +121,7 @@ ul.nav-items li a {
 
 .data-container {
   display: block;
+
   /* display: flex;
   flex-direction: column;
   flex-wrap: wrap; */
@@ -133,9 +134,9 @@ ul.nav-items li a {
 .metric-container {
   display: flex;
   justify-content: space-between;
-  background: rgb(221,71,129);
+  background: rgb(221, 71, 129);
   padding: 2%;
-  margin-bottom: 1%; 
+  margin-bottom: 1%;
 }
 
 .metric-left,
