@@ -28,7 +28,7 @@ const metricsDetailsSlice = createSlice({
   name: 'allmetrics',
   initialState,
   reducers: {
-  
+
   },
 
   extraReducers: (builder) => {

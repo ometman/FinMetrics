@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { extraReducers } from '../redux/datadetails/dataDetailsSlice';
+// import { extraReducers } from '../redux/datadetails/dataDetailsSlice';
 
 const DetailsData = ({ metric }) => {
   const {
@@ -27,11 +27,11 @@ const DetailsData = ({ metric }) => {
         dispatch(fetchMetricsByThunk());
       }
     }, [dispatch, isLoading, error]);
-  
+
     if (isLoading === 'pending') {
       return (<p>loading data...</p>);
     }
-  
+
     if (error) return (<p>Oops! Seems something went wrong</p>);
   };
 
