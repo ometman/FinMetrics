@@ -115,69 +115,87 @@ ul.nav-items li a {
   color: #fff;
 }
 
-/* metrics data container */
-
 /* general data */
 
 .data-container {
-  display: block;
-
-  /* display: flex;
-  flex-direction: column;
-  flex-wrap: wrap; */
-  width: 100%;
+  display: flex;
+  flex: 1 1;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  height: 100vh;
   margin: auto 0;
+  padding: 0;
 }
 
-/* detail data */
+/* details data */
 
-.metric-container {
+ul.metric-head-container {
   display: flex;
-  justify-content: space-between;
-  background: rgb(221, 71, 129);
-  padding: 2%;
-  margin-bottom: 1%;
-}
-
-.metric-left,
-.metric-right {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #fff;
-  margin-bottom: 2rem;
-  width: 100vw;
+  background: rgb(221, 71, 129);
+  margin-bottom: 1%;
+  padding: 0 2%;
+  width: 96%;
+}
+
+ul > li.metric-head-image {
+  width: 50%;
+  background: red;
+}
+
+ul > li.metric-head-info {
+  width: 50%;
+  background: green;
+}
+
+.metric-head-image {
+  height: auto;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.details-data-container {
+  display: block; 
+  background: rgb(221, 71, 129);
+  padding: 2%;
+  margin: 0;
+  height: auto;
+  width: 50%;
 }
 
 .metric-top {
-  width: 100%;
   display: flex;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .metric-bottom {
-  width: 90%;
+  width: 100%;
 }
 
-.metric-image-container {
-  width: 80%;
-  padding: 1%;
+div.metric-image-container {
+  width: 90%;
+  /* background: red; */
+  align-self: center;
 }
 
 .metric-image {
-  height: auto;
-  width: 90%;
-  border-radius: 8px;
-  transition: all 1s ease-in-out;
+  height: 130px;
+  width: 100%;
+  border-radius: 4px;
 }
 
-.metric-image:hover {
-  border-radius: 6px;
-}
-
-.metric-details-icon {
+.metric-details-icon-container {
   align-self: flex-start;
   width: 10%;
+  padding: 0 1%;
+}
+
+.metrics-link-icon {
+  font-size: 1.3rem;
+  vertical-align: top !important;
+  color: #fff;
 }
 
 ul.company-info {
@@ -199,48 +217,28 @@ ul.company-info li {
 }
 
 ul > li.btn-link {
-  width: 20%;
-  height: 15%;
-}
-
-.reserve-btn {
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  background: rgb(36, 144, 255);
-  border-radius: 4px;
-  border: 1px solid rgb(36, 144, 255);
-  box-shadow: 1px 1px 0 1px rgb(36, 144, 255);
-}
-
-.reserve-btn-fade {
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  background: gray;
-  border-radius: 4px;
-  border: 1px solid rgb(36, 144, 255);
-  box-shadow: 1px 1px 0 1px rgb(36, 144, 255);
-}
-
-.showbadge {
-  display: inline-block;
-  color: #fff;
-  background: rgb(48, 161, 184);
-  border-radius: 1px;
-  border: none;
-  padding: 0.3% 1%;
-  margin-right: 1%;
-}
-
-.reserve-btn:hover {
-  background: #fff;
-  color: blue;
+  width: 30%;
+  height: 25%;
 }
 
 .no-metrics {
   text-align: center;
   padding-top: 5%;
+}
+
+/* metrics details */
+
+.metric-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: rgb(221, 71, 129);
+  padding: 2%;
+  margin-bottom: 1%;
+}
+
+.metric-list:nth(odd) {
+  background: #fff;
 }
 
 /* error page */
@@ -258,4 +256,6 @@ ul > li.btn-link {
 .header-icons {
   vertical-align: middle;
   font-size: 1.2rem;
+  color: #fff;
 }
+
