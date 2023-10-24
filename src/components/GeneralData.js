@@ -7,7 +7,6 @@ import WestAfricaMap
 
 export default function GeneralData() {
   const { allmetrics, isLoading, error } = useSelector((store) => store.metrics);
-  console.log(allmetrics);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,8 +28,20 @@ export default function GeneralData() {
           <img src={WestAfricaMap} className="metric-head-image" alt="West Africa Countries" />
         </li>
         <li className="metric-head-info">
-          West Africa Sub Region
-          {allmetrics.total}
+          {allmetrics.length > 0
+          && (
+          <>
+            <h3>World Bank Indicators</h3>
+            {' '}
+            <h3>{allmetrics[17].region.value}</h3>
+            {' '}
+            <h4>
+              {allmetrics[17].total}
+              {' '}
+              Countries
+            </h4>
+          </>
+          )}
         </li>
       </ul>
       {allmetrics.length > 0 ? (

@@ -1,15 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// const convert = require('xml-js');
-import FlagStore from '../../components/flagStore';
+import {
+  FlagStore,
+  noDataCountry,
+  noDataCity,
+} from '../../components/flagStore';
 
 const initialState = {
   allmetrics: [],
   isLoading: 'true',
   error: undefined,
+  stateValue: null,
 };
 
-// const indicatorCode = 'NY.GDP.MKTP.CD'; // GDP in current US dollars
 const countries = 'NGA;GHA;SEN;MLI;BFA;NER;CIV;GIN;SLE;LBR;TGO;BEN;MRT;GMB;CPV';
 const apiUrl = `https://api.worldbank.org/v2/country/${countries}/?format=json`;
 export const fetchMetricsByThunk = createAsyncThunk(
@@ -27,7 +30,13 @@ export const fetchMetricsByThunk = createAsyncThunk(
 const metricsDetailsSlice = createSlice({
   name: 'allmetrics',
   initialState,
-  reducers: { },
+  reducers: {
+    changeState: (state, action) => {
+      const getId = action.payload;
+      const newState = state.allmetrics.map((metric) => ({ ...metric }));
+      return { state, allmetrics: newState, stateValue: getId };
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -39,22 +48,32 @@ const metricsDetailsSlice = createSlice({
         state.allmetrics.length = 15;
         const theMetrics = (metricsData = action.payload) => {
           const metricEntry = Object.entries(metricsData);
-          for (let i = 0; i < 15; i += 1) {
-            state.allmetrics.push({
-              id: i,
-              total: metricEntry[0][1].total,
-              flagImage: FlagStore[i],
-              adminregion: metricEntry[1][1][i].adminregion,
-              capitalCity: metricEntry[1][1][i].capitalCity,
-              countryid: metricEntry[1][1][i].id,
-              incomeLevel: metricEntry[1][1][i].incomeLevel,
-              iso2Code: metricEntry[1][1][i].iso2Code,
-              latitude: metricEntry[1][1][i].latitude,
-              lendingType: metricEntry[1][1][i].lendingType,
-              longitude: metricEntry[1][1][i].longitude,
-              name: metricEntry[1][1][i].name,
-              region: metricEntry[1][1][i].region,
-            });
+          for (let i = 0; i < 18; i += 1) {
+            if (metricEntry[1][1][i] === undefined) {
+              state.allmetrics.push({
+                id: i,
+                flagImage: FlagStore[i],
+                name: noDataCountry[i - 15],
+                capitalCity: noDataCity[i - 15],
+                message: 'Country data unavailable',
+              });
+            } else {
+              state.allmetrics.push({
+                id: i,
+                total: metricEntry[0][1].total,
+                flagImage: FlagStore[i],
+                adminregion: metricEntry[1][1][i].adminregion,
+                capitalCity: metricEntry[1][1][i].capitalCity,
+                countryid: metricEntry[1][1][i].id,
+                incomeLevel: metricEntry[1][1][i].incomeLevel,
+                iso2Code: metricEntry[1][1][i].iso2Code,
+                latitude: metricEntry[1][1][i].latitude,
+                lendingType: metricEntry[1][1][i].lendingType,
+                longitude: metricEntry[1][1][i].longitude,
+                name: metricEntry[1][1][i].name,
+                region: metricEntry[1][1][i].region,
+              });
+            }
           }
         };
         theMetrics();
@@ -67,6 +86,6 @@ const metricsDetailsSlice = createSlice({
 });
 
 export const {
-  extraReducers,
+  changeState, extraReducers,
 } = metricsDetailsSlice.actions;
 export default metricsDetailsSlice.reducer;

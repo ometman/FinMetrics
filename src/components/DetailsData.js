@@ -1,29 +1,24 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { FiArrowRightCircle } from 'react-icons/fi';
-import MetricsDetails from './MetricDetails';
-import {
-  fetchMetricsByThunk,
-} from '../redux/metricsdetails/metricsDetailsSlice';
+import ArrowRight from '../assets/ArrowRight.png';
+import { changeState } from '../redux/metricsdetails/metricsDetailsSlice';
 
 const DetailsData = ({ metric }) => {
-  const { allmetrics } = useSelector((store) => store.metrics);
-  const [metricData, setMetricData] = useState({});
-  const [metricId, setMetricId] = useState('');
-
   const dispatch = useDispatch();
-  // const {
-  //   id, total, flagImage, adminregion, capitalCity,
-  //   countryid, incomeLevel, iso2Code,
-  //   latitude, lendingType, longitude,
-  //   name, region,
-  // } = metric;
+  const [metricId, setMetricId] = useState(true);
+
+  const handleClick = (e) => {
+    const dataId = e.target.id;
+    if (metricId) {
+      dispatch(changeState(dataId));
+    }
+    setMetricId(false);
+  };
 
   const {
     id,
-    // total,
     flagImage,
     capitalCity,
     name,
@@ -31,51 +26,10 @@ const DetailsData = ({ metric }) => {
 
   DetailsData.propTypes = {
     id: PropTypes.string.isRequired,
-    // total: PropTypes.string.isRequired,
     flagImage: PropTypes.node.isRequired,
-    // adminregion: PropTypes.object.isRequired,
     capitalCity: PropTypes.string.isRequired,
-    // countryid: PropTypes.string.isRequired,
-    // incomeLevel: PropTypes.object.isRequired,
-    // iso2Code: PropTypes.string.isRequired,
-    // latitude: PropTypes.string.isRequired,
-    // lendingType: PropTypes.object.isRequired,
-    // longitude: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    // region: PropTypes.object.isRequired,
     metric: PropTypes.node.isRequired,
-  };
-
-  // DetailsData.propTypes = {
-  //   id: PropTypes.string.isRequired,
-  //   total: PropTypes.string.isRequired,
-  //   flagImage: PropTypes.node.isRequired,
-  //   adminregion: PropTypes.object.isRequired,
-  //   capitalCity: PropTypes.string.isRequired,
-  //   countryid: PropTypes.string.isRequired,
-  //   incomeLevel: PropTypes.object.isRequired,
-  //   iso2Code: PropTypes.string.isRequired,
-  //   latitude: PropTypes.string.isRequired,
-  //   lendingType: PropTypes.object.isRequired,
-  //   longitude: PropTypes.string.isRequired,
-  //   name: PropTypes.string.isRequired,
-  //   region: PropTypes.object.isRequired,
-  //   metric: PropTypes.node.isRequired,
-  // };
-
-  const handleClick = async (e) => {
-    const dataId = e.target.id;
-    setMetricId(dataId);
-    dispatch(fetchMetricsByThunk());
-    const metricSelect = await allmetrics.filter(
-      (metricEntry) => metricEntry.id === dataId,
-    );
-    setMetricData(metricSelect);
-    return (setMetricId && setMetricData)
-      ? (<MetricsDetails key={metricId} metric={metricData} />)
-      : (
-        <div><p>No metrics</p></div>
-      );
   };
 
   return (
@@ -86,22 +40,19 @@ const DetailsData = ({ metric }) => {
         </div>
         <div className="metric-details-icon-container btn-link">
           <NavLink to="/details">
-            <i className="metrics-link-icon">
-              <FiArrowRightCircle id={id} onClick={handleClick} />
-            </i>
+            <button type="button" className="metrics-link-icon" onClick={handleClick}>
+              <img id={id} className="thisbtn right-arrow-image" src={ArrowRight} alt="Right arrow" />
+            </button>
           </NavLink>
         </div>
       </div>
-      <ul className="metric-bottom company-info">
+      <ul className="metric-bottom country-info">
         <li><h4>{name}</h4></li>
         <li>
           <p>
             {capitalCity}
           </p>
         </li>
-        {/* <li>
-            {changesPercentage}
-          </li> */}
       </ul>
     </div>
   );
