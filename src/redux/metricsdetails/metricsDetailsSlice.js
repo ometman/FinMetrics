@@ -52,10 +52,18 @@ const metricsDetailsSlice = createSlice({
             if (metricEntry[1][1][i] === undefined) {
               state.allmetrics.push({
                 id: i,
+                total: metricEntry[0][1].total,
                 flagImage: FlagStore[i],
-                name: noDataCountry[i - 15],
+                adminregion: 'Country data unavailable',
                 capitalCity: noDataCity[i - 15],
-                message: 'Country data unavailable',
+                countryid: 'Country data unavailable',
+                incomeLevel: 'Country data unavailable',
+                iso2Code: 'Country data unavailable',
+                latitude: 'Country data unavailable',
+                lendingType: 'Country data unavailable',
+                longitude: 'Country data unavailable',
+                name: noDataCountry[i - 15],
+                region: 'Country data unavailable',
               });
             } else {
               state.allmetrics.push({
