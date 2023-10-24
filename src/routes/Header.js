@@ -13,7 +13,7 @@ function Header() {
   const toForward = () => window.history.forward();
 
   return (
-    <div className="app-container">
+    <div className="app-container app-shadow">
       <div className="header">
         <div className="home-icon">
           {!(location.pathname === '/')
