@@ -38,7 +38,7 @@
 # 📖 FinMetrics Web Application <a name="about-project"></a>
 
 **A Demo Video: Introduction to this Project**
---coming soon
+--View here>>>> <a href="https://www.loom.com/share/b535632d9f8342dd94cd5c3a2e3d59de?sid=69e66a75-1689-479f-ad53-3d4386e193e1"> FinMetrics Demo </a>
 
 >The project includes designs for two different screen sizes.
 
@@ -175,7 +175,7 @@ You can deploy this project using:
 - GitHub Pages from a specific branch (e.g. main). 
 - You can also used any cloud service like gcloud or Azure.
 - A deployed version can be found here:
-[https://... (Coming Soon)
+[https://https://finmetrics.onrender.com/] 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
