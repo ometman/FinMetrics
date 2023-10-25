@@ -36,7 +36,7 @@ export default function GeneralData() {
             <h3>{allmetrics[17].region.value}</h3>
             {' '}
             <h4>
-              {allmetrics[17].total}
+              {(allmetrics[17].total) + 3}
               {' '}
               Countries
             </h4>
