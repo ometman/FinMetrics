@@ -77,4 +77,8 @@ describe('route components rendering properly', () => {
     expect(result).toMatchSnapshot();
     expect(errorCode).toEqual('<h1>Oops! 404 Page</h1>');
   });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
 });
