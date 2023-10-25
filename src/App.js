@@ -8,7 +8,6 @@ import Home from './routes/Home';
 import Metrics from './routes/Metrics';
 import ErrorPage from './routes/ErrorPage';
 import './App.css';
-// import MetricDetails from './components/MetricDetails';
 
 function App() {
   return (
