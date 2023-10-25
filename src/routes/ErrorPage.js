@@ -4,7 +4,7 @@ export default function ErrorPage() {
       <div id="error-page">
         <h1>Oops! 404 Page</h1>
         <p>Sorry, an unexpected error has occurred.</p>
-        <p>This is mostly because the Page does not exit.</p>
+        <p>This is mostly because the Page does not exist.</p>
       </div>
     </div>
   );
